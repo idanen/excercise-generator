@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { fetch } from 'whatwg-fetch';
 import { configure } from '@testing-library/react';
 import { vi } from 'vitest';
-import { server } from './__mocks__/server';
+import { server } from './mocks/server';
 
 configure({ asyncUtilTimeout: process.env.CI ? 5000 : 1000 });
 

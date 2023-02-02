@@ -7,6 +7,6 @@ export const Status = {
 export const AllowedOperations = {
   ADDITION: { id: 'ADDITION', operator: '+', label: 'חיבור' },
   SUBTRACTION: { id: 'SUBTRACTION', operator: '-', label: 'חיסור' },
-  MULTIPLICATION: { id: 'MULTIPLICATION', operator: '*', label: 'כפל' },
-  DIVISION: { id: 'DIVISION', operator: '/', label: 'חילוק' },
+  MULTIPLICATION: { id: 'MULTIPLICATION', operator: '×', label: 'כפל' },
+  DIVISION: { id: 'DIVISION', operator: '÷', label: 'חילוק' },
 };

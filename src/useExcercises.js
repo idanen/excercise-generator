@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { Status, AllowedOperations } from './consts';
+import { random, findFactors } from './tools';
 
 const DIVIDERS = Array.from({ length: 10 }, (_, index) =>
   Array.from({ length: 10 }, (_, jindex) => (index + 1) * (jindex + 1))
@@ -18,8 +19,8 @@ const ExcerciseForOperation = {
     };
   },
   [AllowedOperations.SUBTRACTION.id]: ({ limit, index }) => {
-    const arg1 = random(1, limit);
-    const arg2 = random(1, arg1);
+    const arg1 = random(2, limit);
+    const arg2 = random(0, arg1);
     return {
       id: index,
       arg1,
@@ -126,16 +127,4 @@ export function useExcercises() {
   }, []);
 
   return { excercises, generateExcercises, checkResults, resetResults };
-}
-
-function random(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min);
-}
-
-function findFactors(number) {
-  return Array.from({ length: number }, (_, index) => index + 1).filter(
-    (iteration) => number % iteration === 0
-  );
 }
