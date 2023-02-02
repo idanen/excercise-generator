@@ -25,4 +25,8 @@ jobs:
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
 
-      - run: npm run deploy
+      - run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/idanen/excercise-generator.git
+          npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
