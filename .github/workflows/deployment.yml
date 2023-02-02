@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
-    -run: pnpm install --frozen-lockfile
-    -run: npm run deploy
+
 jobs:
   build:
     runs-on: ubuntu-latest
