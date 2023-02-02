@@ -1,0 +1,54 @@
+.init-form {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  align-items: center;
+  justify-items: start;
+  gap: 4px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  row-gap: 8px;
+  column-gap: 16px;
+  direction: ltr;
+}
+
+.excercise {
+  display: grid;
+  grid-template-columns: repeat(4, 2ch) 4ch;
+  justify-items: start;
+  gap: 4px;
+}
+
+.operand {
+  justify-self: center;
+}
+
+.result {
+  --correct-color: #33ba33;
+  --incorrect-color: red;
+  width: 4ch;
+  outline-offset: -1px;
+
+  &.correct {
+    outline: 2px solid var(--correct-color);
+  }
+  &.incorrect {
+    outline: 2px solid var(--incorrect-color);
+  }
+}
+
+.submit {
+  grid-column: 1 / -1;
+}
+
+.reset {
+  align-self: center;
+}

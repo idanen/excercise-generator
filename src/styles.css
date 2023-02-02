@@ -1,0 +1,17 @@
+html {
+  height: 100%;
+  direction: rtl;
+}
+
+body {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
