@@ -6,6 +6,24 @@
   gap: 4px;
 }
 
+.operations {
+  grid-column: 1 / -1;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend {
+  text-align: start;
+}
+
+.group {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.2em;
+  padding: 0.5em 0;
+}
+
 .main {
   display: flex;
   flex-direction: column;
