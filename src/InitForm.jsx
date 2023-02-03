@@ -57,7 +57,9 @@ export function InitForm({ onInit }) {
           ))}
         </div>
         {errors?.operations ? (
-          <div role='alert'>{errors?.operations}</div>
+          <div className={styles.error} role='alert'>
+            {errors?.operations}
+          </div>
         ) : null}
       </fieldset>
       <button>התחל</button>
