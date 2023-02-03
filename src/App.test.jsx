@@ -19,3 +19,17 @@ test(`creating excercises`, async () => {
     4
   );
 });
+
+test(`doesn't start without selecting at least one operation`, async () => {
+  render(<App />);
+
+  await userEvent.click(screen.getByRole('checkbox', { name: 'חיבור' }));
+  await userEvent.click(screen.getByRole('button', { name: 'התחל' }));
+
+  expect(screen.getByRole('alert')).toHaveTextContent(new RegExp('לפחות'));
+
+  await userEvent.click(screen.getByRole('checkbox', { name: 'חיבור' }));
+  await userEvent.click(screen.getByRole('button', { name: 'התחל' }));
+
+  expect(screen.getByRole('heading', { name: 'בהצלחה' })).toBeInTheDocument();
+});
