@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import Confetti from 'react-confetti';
 import styles from './practice.module.scss';
+import { formatExcercise } from './tools';
 
 export function Excercises({ excercises, onSubmit, onRestart, onReset }) {
   return (
@@ -18,7 +19,7 @@ export function Excercises({ excercises, onSubmit, onRestart, onReset }) {
               <span>{arg2}</span>
               <span className={styles.operand}>=</span>
               <input
-                aria-label={`Result for excercise ${index + 1}`}
+                aria-label={formatExcercise({ arg1, arg2, operator })}
                 className={cx(styles.result, styles[status.toLowerCase()])}
                 name={`result-${id}`}
                 type='number'

@@ -15,9 +15,7 @@ test(`creating excercises`, async () => {
   await userEvent.click(screen.getByRole('button', { name: 'התחל' }));
 
   expect(screen.getByRole('heading', { name: 'בהצלחה' })).toBeInTheDocument();
-  expect(screen.getAllByRole('spinbutton', { name: /result/i })).toHaveLength(
-    4
-  );
+  expect(screen.getAllByRole('spinbutton', { name: /תוצאת/i })).toHaveLength(4);
 });
 
 test(`doesn't start without selecting at least one operation`, async () => {
