@@ -1,34 +1,3 @@
-.init-form {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  align-items: center;
-  justify-items: start;
-  gap: 4px;
-}
-
-.operations {
-  grid-column: 1 / -1;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
-.legend {
-  text-align: start;
-}
-
-.group {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  justify-items: start;
-  gap: 0.2em;
-  padding: 0.5em 0;
-}
-
-.error {
-  color: red;
-}
-
 .main {
   display: flex;
   flex-direction: column;

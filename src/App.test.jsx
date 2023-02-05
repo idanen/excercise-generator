@@ -31,3 +31,13 @@ test(`doesn't start without selecting at least one operation`, async () => {
 
   expect(screen.getByRole('heading', { name: 'בהצלחה' })).toBeInTheDocument();
 });
+
+test(`can change range only when Addition is selected`, async () => {
+  render(<App />);
+
+  expect(screen.getByRole('slider', { name: /גבול עליון/i })).toBeEnabled();
+
+  await userEvent.click(screen.getByRole('checkbox', { name: 'חיבור' }));
+
+  expect(screen.getByRole('slider', { name: /גבול עליון/i })).toBeDisabled();
+});

@@ -28,8 +28,7 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "test": "vitest",
-    "deploy": "npm run build && gh-pages -d dist"
+    "test": "vitest"
   },
   "browserslist": [
     ">0.2%",
