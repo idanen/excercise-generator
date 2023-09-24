@@ -35,6 +35,9 @@
   &.incorrect {
     outline: 2px solid var(--incorrect-color);
   }
+  &.unanswered {
+    outline: 0;
+  }
 }
 
 .submit {

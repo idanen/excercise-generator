@@ -1,18 +1,14 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import App from './App';
 
 test(`creating excercises`, async () => {
+  const user = userEvent.setup();
   render(<App />);
 
-  await userEvent.clear(
-    screen.getByRole('spinbutton', { name: 'כמה תרגילים' })
-  );
-  await userEvent.type(
-    screen.getByRole('spinbutton', { name: 'כמה תרגילים' }),
-    '4'
-  );
-  await userEvent.click(screen.getByRole('button', { name: 'התחל' }));
+  await user.clear(screen.getByRole('spinbutton', { name: 'כמה תרגילים' }));
+  await user.type(screen.getByRole('spinbutton', { name: 'כמה תרגילים' }), '4');
+  await user.click(screen.getByRole('button', { name: 'התחל' }));
 
   expect(screen.getByRole('heading', { name: 'בהצלחה' })).toBeInTheDocument();
   expect(screen.getAllByRole('spinbutton', { name: /תוצאת/i })).toHaveLength(4);
