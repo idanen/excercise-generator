@@ -1,13 +1,14 @@
 import { useState, Fragment, useCallback } from 'react';
+import type { SyntheticEvent, ChangeEvent, EventHandler } from 'react';
 import { AllowedOperations } from './consts';
 import styles from './init-form.module.scss';
 
-export function InitForm({ onInit }) {
+export function InitForm({ onInit }: { onInit: EventHandler<SyntheticEvent> }) {
   const [limit, setLimit] = useState(100);
   const [additionChecked, setAdditionChecked] = useState(true);
-  const [errors, setErrors] = useState(null);
+  const [errors, setErrors] = useState<Record<string, string> | null>(null);
 
-  const handleChange = useCallback((event) => {
+  const handleChange = useCallback((event: ChangeEvent<HTMLFormElement>) => {
     if (event.target.value !== AllowedOperations.ADDITION.id) {
       return;
     }
@@ -15,12 +16,14 @@ export function InitForm({ onInit }) {
     setAdditionChecked(event.target.checked);
   }, []);
 
-  const handleSubmit = useCallback((event) => {
+  const handleSubmit = useCallback((event: SyntheticEvent) => {
     event.preventDefault();
 
     const hasChecked = [
-      ...event.target.querySelectorAll('input[name="operations"]'),
-    ].some((input) => input.checked);
+      ...(event.target as HTMLFormElement).querySelectorAll(
+        'input[name="operations"]'
+      ),
+    ].some((input) => (input as HTMLInputElement).checked);
 
     if (hasChecked) {
       onInit(event);
@@ -78,7 +81,7 @@ export function InitForm({ onInit }) {
           <input
             id='ex-limit'
             defaultValue={100}
-            onChange={(event) => setLimit(event.target.value)}
+            onChange={(event) => setLimit(event.target.valueAsNumber)}
             type='range'
             name='limit'
             min='30'

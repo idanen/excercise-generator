@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "preserve",
+    "outDir": "./dist",
+    "strict": true,
+    "moduleResolution": "node",
+    "types": ["vitest", "vitest/globals", "node"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "exclude": [
+    "./dist",
+    "./public",
+    "./node_modules",
+    "**/node_modules/*",
+    "**/node_modules/.pnpm/**/*"
+  ]
+}
