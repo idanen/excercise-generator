@@ -28,6 +28,28 @@ test(`doesn't start without selecting at least one operation`, async () => {
   expect(screen.getByRole('heading', { name: 'בהצלחה' })).toBeInTheDocument();
 });
 
+const Operations = [
+  { name: 'addition', label: 'חיבור', operator: '+' },
+  { name: 'subtraction', label: 'חיסור', operator: '-' },
+  { name: 'multiplication', label: 'כפל', operator: '×' },
+  { name: 'division', label: 'חילוק', operator: '÷' },
+];
+test.each(Operations)(
+  `selecting $name creates form with $name`,
+  async ({ label, operator }) => {
+    render(<App />);
+
+    await userEvent.click(screen.getByRole('checkbox', { name: 'חיבור' }));
+    await userEvent.click(screen.getByRole('checkbox', { name: label }));
+
+    await userEvent.click(screen.getByRole('button', { name: 'התחל' }));
+
+    expect(
+      screen.getAllByTestId('operator').map((el) => el.textContent)
+    ).toEqual(operator.repeat(10).split(''));
+  }
+);
+
 test(`can change range only when Addition is selected`, async () => {
   render(<App />);
 

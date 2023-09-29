@@ -22,7 +22,7 @@ export default function App() {
         ) as (keyof typeof AllowedOperations)[];
       generateExcercises({
         count: Number(count),
-        limit: Number(limit),
+        limit: Number(limit || 100),
         operations,
       });
     },

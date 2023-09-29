@@ -27,7 +27,9 @@ export function Excercises({
         {excercises.map(({ id, arg1, operator, arg2, status }) => (
           <div className={styles.excercise} key={id}>
             <span>{arg1}</span>
-            <span className={styles.operand}>{operator}</span>
+            <span className={styles.operand} data-testid='operator'>
+              {operator}
+            </span>
             <span>{arg2}</span>
             <span className={styles.operand}>=</span>
             <input
